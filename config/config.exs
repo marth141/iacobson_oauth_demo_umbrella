@@ -56,7 +56,16 @@ config :phoenix, :json_library, Jason
 
 config :ueberauth, Ueberauth,
   providers: [
-    google: {Ueberauth.Strategy.Google, []}
+    google:
+      {Ueberauth.Strategy.Google,
+       [
+         [
+           hd: "skyline.solar",
+           prompt: "select_account",
+           access_type: "offline",
+           include_granted_scopes: true
+         ]
+       ]}
   ]
 
 # Import environment specific config. This must remain at the bottom
